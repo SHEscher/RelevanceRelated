@@ -57,18 +57,18 @@ Install the study code as `Python` package:
 pip install -e .
 ```
 
-Note, there is optional `[develop]` dependencies for those, who want to develop this project further.
-Check out the [`pyproject.toml`](./pyproject.toml) file to see which dependencies will be installed additionally.
+Note, there are optional dependencies for those, who want to develop this project further.
+Check out the [`pyproject.toml`](./pyproject.toml) file to see which dependencies will be installed additionally
+(add the `[develop]` flag to the `pip` installation line above).
 
 Also, note that some of the code had to be anonymized due to data protection regulations.
 Therefore, some parts of the code might not be executable without the original data.
-
-Contact the authors for further information.
+Contact the authors for information on how to get access to the data.
 
 ### Applying the pipeline on your own data
 
 If you are interested in training deep learning models and applying relevance mapping (XAI) on your own data,
-we refer to the [`xai4mri` toolbox](https://shescher.github.io/xai4mri/),
+we refer to the [`xai4mri`](https://shescher.github.io/xai4mri/) toolbox,
 which is a generalized form of the code presented here.
 
 ## Versions
@@ -87,6 +87,8 @@ which is a generalized form of the code presented here.
 If you use code or data from this repository, please cite the following paper:
 
     Hofmann, S.M., Goltermann, O., Scherf, N., Müller, K.R., Löffler, M., Villringer, A., Gaebler, M., Witte, A.V., Beyer, F. The utility of explainable AI for MRI analysis: Relating model predictions to neuroimaging features of the aging brain. *Imaging Neuroscience*. 2025.
+
+---
 
 The authors of this repository are:
 
