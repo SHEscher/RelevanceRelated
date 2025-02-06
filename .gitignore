@@ -1,0 +1,58 @@
+# Files and folders to be ignored
+
+# Ignore following folders
+/**/*/checkpoints/
+/**/*/.ipynb_checkpoints/
+/**/*/.idea/
+/**/*/Backup*/
+/.idea/
+/data/
+/results/
+
+# Files
+*.log
+*.pkl
+*.gif
+*.h5
+/**/*/events.out.tfevents*
+*.pxd
+**/*/*.pxd/*
+
+# User specific configs files
+*_config.toml
+!config.toml  # except for 'config.toml'
+
+# Mac specific
+*.key
+.DS_Store
+*Alias
+
+# # Virtual Environment
+/venv*
+
+# R
+*.Rproj
+.Rproj.user
+.Rhistory
+
+# # Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# # Builds
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg

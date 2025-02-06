@@ -1,0 +1,203 @@
+[build-system]
+requires = ["setuptools>=59.6", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "analysis/tests",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::FutureWarning",
+]
+
+[tool.coverage.run]  # https://coverage.readthedocs.io/en/latest/config.html
+data_file = "analysis/tests/.coverage"
+
+[tool.coverage.report]
+exclude_lines = [
+  "if __name__ == .__main__.:",
+]
+
+[tool.coverage.html]
+directory = "analysis/tests/coverage_html_report"
+
+[tool.mypy]
+mypy_path = "analysis"
+check_untyped_defs = true
+disallow_any_generics = true
+ignore_missing_imports = true
+no_implicit_optional = true
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+no_implicit_reexport = true
+
+[tool.flake8]
+max-line-length = 119
+
+[tool.ruff]
+line-length = 119
+lint.select = [   # add rules
+    # "ALL", # all rules
+    "D",  # pydocstyle
+    "E", # pycodestyle [default]
+    "F",  # Pyflakes [default]
+    "I",  # isort imports
+    "RUF",  # ruff specific
+    "UP",  # pyupgrade [default]
+    "W",  # pycodestyle: warning
+    "C90", # mccabe
+    "N", # pep8-naming
+    "YTT", # flake8-2020
+    "ANN", # flake8-annotations
+    "ASYNC", # flake8-async
+    "S", # flake8-bandit
+    "BLE", # flake8-blind-except
+    #"FBT", # flake8-boolean-trap
+    "B", # flake8-bugbear
+    "A", # flake8-builtins
+    "COM", # flake8-commas
+    #"CPY", # flake8-copyright
+    "C4", # flake8-comprehensions
+    "DTZ", # flake8-datetimez
+    "T10", # flake8-debugger
+    "DJ", # flake8-django
+    "EM", # flake8-errmsg
+    "EXE", # flake8-executable
+    "FA", # flake8-future-annotations
+    "ISC", # flake8-implicit-str-concat
+    "ICN", # flake8-import-conventions
+    "G", # flake8-logging-format
+    "INP", # flake8-no-pep420
+    "PIE", # flake8-pie
+    # "T20", # flake8-print
+    "PYI", # flake8-pyi
+    "PT", # flake8-pytest-style
+    "Q", # flake8-quotes
+    "RSE", # flake8-raise
+    "RET", # flake8-return
+    # "SLF", # flake8-self
+    "SLOT", # flake8-slots
+    "SIM", # flake8-simplify
+    "TID", # flake8-tidy-imports
+    "TCH", # flake8-type-checking
+    "INT", # flake8-gettext
+    "ARG", # flake8-unused-arguments
+    "PTH", # flake8-use-pathlib
+    "TD", # flake8-todos
+    "FIX", # flake8-fix-me
+    "ERA", # eradicate
+    "PD", # pandas-vet
+    "PGH", # pygrep-hooks
+    "PL", # Pylint
+    "TRY", # tryceratops
+    "FLY", # flynt
+    "NPY", # NumPy-specific rules
+    "AIR", # Airflow
+    "PERF", # Perflint
+    "FURB", # refurb
+]  # check via CMD: ruff linter
+lint.unfixable = [  # list of rules to consider non-autofix-able.
+    "ERA001",  # found commented-out code: do not auto-remove
+    "F401",  # unused imports: do not auto-remove
+    "FURB105",  # Unnecessary separator passed to `print` or empty print statement ?!
+    #"RUF100", # `noqa` directives that are no longer applicable: do not auto-remove
+]
+lint.ignore = [
+    "ANN002",  # flake8-annotations: Missing type annotation for *args
+    "ANN003",  # flake8-annotations: Missing type annotation for **kwargs
+    # "ANN101", # flake8-annotations: Missing type annotation for self in method [deprecated]
+    # "ANN102", # flake8-annotations: Missing type annotation for cls in classmethod [deprecated]
+    "ANN401",  # flake8-annotations: Any
+    "COM812",  # trailing comma missing
+    "D203",  # 1 blank line required before class docstring: incompatible with D211 (=no blank line required)
+    "D212",   # multi-line-summary-first-line incompatible with D213 (=should start at second line)
+    "DTZ005",  # timezone-naive datetime
+    "E231",  # missing whitespace after ':'
+    "E251",  # unexpected spaces around keyword / parameter equals
+    "E402",  # module level import not at the top of a file (covert by ISORT)
+    "FURB105",  # Unnecessary separator passed to `print`
+    "ISC001",  # implicit string concatenation (conflicts with ruff format)
+    "NPY002",  # use numpy random Generator
+    "PIE790",  # unnecessary pass statement
+    "RUF052",  # dummy var accessed
+    "S301",  # suspicious-pickle-usage
+    "TD002",  # Missing author in To-Do
+    "TD003",  # Missing issue link on the line following a To-Do
+    "UP038", # ignore `X | Y` in `isinstance` call instead of `(X, Y)
+]
+# lint.ignore-init-module-imports = true # void automatically removing unused imports in __init__.py [deprecated]
+respect-gitignore = true  # default: true
+src = [
+    "analysis/relevancerelated",
+    "analysis/notebooks",
+    "analysis/tests",
+]
+include = ["*.py", "*.pyi", "**/pyproject.toml", "*.ipynb"]
+extend-exclude = [
+    # "analysis/tests",
+    "data",
+    "publications",
+    "results",
+]
+target-version = "py310"
+output-format = "concise" # "grouped"
+# preview = true  # default: false: Ruff will use unstable rules and fixes
+
+[tool.ruff.lint.extend-per-file-ignores]
+"__init__.py" = ["D104"]  # ignore docstrings in __init__.py
+"test_*.py" = ["S101", "PLC2701"]  # ignore assert statements in tests & private name imports
+"*.ipynb" = ["D100", "B018"]  # ignore missing docstring in notebooks
+
+[tool.ruff.format]
+# Check: https://docs.astral.sh/ruff/settings/#format
+docstring-code-format = true  # default: false
+# docstring-code-line-length = 80
+preview = true  # true: Ruff will use unstable rules and fixes
+
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+ignore-fully-untyped = true
+suppress-none-returning = true
+
+[tool.ruff.lint.flake8-comprehensions]
+allow-dict-calls-with-keyword-arguments = true
+
+[tool.ruff.lint.isort]
+known-local-folder = ["analysis/relevancerelated"]
+
+[tool.ruff.lint.mccabe]
+# Flag errors (`C901`) whenever the complexity level exceeds x.
+max-complexity = 40  # default x: 10
+
+[tool.ruff.lint.pep8-naming]
+ignore-names = []  # fill with specific class, function, variable names
+
+[tool.ruff.lint.pydocstyle]
+# convention = "google"  # "numpy", "pep257"
+
+[tool.ruff.lint.pylint]
+max-args = 12  # default: 5
+max-branches = 41  # default: 12
+max-locals = 50
+max-returns = 8  # default: 6
+max-statements = 136  # default: 50
+max-nested-blocks = 7
+
+[tool.bumpver]
+current_version = "2.0.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = false
+
+[tool.bumpver.file_patterns]
+"analysis/relevancerelated/__init__.py" = ['^__version__ = "{version}"']
+"pyproject.toml" = ['current_version = "{version}"']
+"README.md" = ['version-v.{version}']
+"setup.cfg" = ['^version = {version}']

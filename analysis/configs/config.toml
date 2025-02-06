@@ -1,0 +1,67 @@
+PROJECT_NAME = "RelevanceRelated"
+
+# all relative paths are relative to the PROJECT_ROOT folder named PROJECT_NAME
+# absolute paths refer to places on the MPI servers
+# Note, some paths are anonymized with ".../"
+[paths]
+DATA = "./data"  # this gets overwritten in config.py, when on MPI server
+RESULTS = "./results"
+
+    [paths.data.tables]
+    overview = "./data/subject_tables/relevance_related_data_overview.csv"
+
+    [paths.data.life]
+    ROOT = "..."
+    CONVERSION_TAB = ".../...csv"
+
+    [paths.statsmaps]
+    DERIVATIVES = "./data/statsmaps"
+    FA = ".../Lipsia_preprocessing/mri/"
+    GM = ".../freesurfer_all/"
+    LRP = ".../Interpretation/"  # LRP heatmaps
+    VBM = ".../LIFE_bl/LIFE_2015_VBM_SPM12/SUBJECTS/"
+    WML = ".../Data/LST/"  # white matter lesion probability maps
+
+    [paths.atlas]
+    CEREBELLUM = "./data/BrainAtlases/Cerebellum"
+    JHU = "./data/BrainAtlases/JHU"  # copied from FSL
+    ATAG = "./data/BrainAtlases/BasalGanglia"
+    MNI = "./data/BrainAtlases/MNI152/MNI152_T1_{mm}mm_brain.nii.gz"
+
+    [paths.keras]
+    ROOT = "./data/modelling/MRInet" # .../processed/"
+    DATASPLIT = "./data/MRInet/datasplit"
+    INTERPRETATION = "./data/MRInet/interpretation"
+    LOGS = "./data/MRInet/logs"
+    MODELS = "./data/MRInet/models"
+    PREDICTIONS = "./data/MRInet/predictions"
+
+    [paths.pvs]
+    LOGS = ".../LIFE_{}/derivatives/pvs/logs"
+    MAPS = ".../LIFE_{}/derivatives/pvs"
+    MODELS = "./data/segmentation/pvs/models"
+
+    [paths.results]
+    GM = "./results/GM"
+    FA = "./results/FA"
+    PVS = "./results/PVS"
+    WML = "./results/WML"
+
+[params]
+alpha = 0.05
+mri_sequences = ["t1", "flair", "swi"]  # order must be kept
+analyzer_type = "lrp.sequential_preset_a"
+
+    [params.subcortical]
+    rois = ["Left-Lateral-Ventricle", "Left-Inf-Lat-Vent", "Left-Cerebellum-White-Matter", "Left-Cerebellum-Cortex", "Left-Thalamus-Proper", "Left-Caudate", "Left-Putamen", "Left-Pallidum", "3rd-Ventricle", "Left-Hippocampus", "Left-Amygdala", "CSF","Brain-Stem", "Left-Accumbens-area", "Right-Lateral-Ventricle", "Right-Inf-Lat-Vent", "Right-Cerebellum-White-Matter", "Right-Cerebellum-Cortex","Right-Thalamus-Proper", "Right-Caudate", "Right-Putamen", "Right-Pallidum", "Right-Hippocampus", "Right-Amygdala", "Right-Accumbens-area"]
+
+    [params.fa]
+    threshold = 0.2
+
+    [params.pvs]
+    threshold = 0.5
+    cluster_size = 5  # set to 0 if no cluster threshold should be applied
+    dilate_by = 1  # dilate PVS regions by n voxels in each dimension (specifically for T1, where PVS have zero values)
+
+    [params.pvs.basal_ganglia]
+    dilate_mask_by = 5 # dilate basal ganglia mask by n voxels to capture deep white matter around it.
