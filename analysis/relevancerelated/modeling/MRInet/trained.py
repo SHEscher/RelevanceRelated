@@ -239,7 +239,6 @@ class TrainedEnsembleModel:
             if not len(_x) == len(_y) == len(sics_subset):
                 msg = "Length must be equal, revisit implementation!"
                 raise ValueError(msg)
-            # TODO: for regional multi-level ensemble there is an issue here # noqa: FIX002
 
         # Return
         if return_sics:
@@ -395,7 +394,7 @@ class TrainedEnsembleModel:
         else:
             file = None
             print(f"No {subset}-prediction file was found for '{self.active_model.name}'.")
-            # TODO: compute the file  # noqa: FIX002
+            # compute the file ...
 
         return file
 

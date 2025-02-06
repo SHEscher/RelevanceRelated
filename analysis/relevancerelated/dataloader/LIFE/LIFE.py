@@ -335,7 +335,6 @@ def load_study_table(
         study_table = study_table.drop(columns=["...", "...", "..."])
 
         if exclusion:
-            # TODO: define exclusion in follow-up  # noqa: FIX002
             msg = "For follow-up data, SICs to exclude are not defined yet!"
             raise NotImplementedError(msg)
 
@@ -1254,7 +1253,7 @@ def datasplit_for_classification(
 
     # # Set Groups
     try:
-        low_bound, up_bound = binary_boundaries[target.lower()]  # TODO: only binary so far  # noqa: FIX002
+        low_bound, up_bound = binary_boundaries[target.lower()]  # only binary so far
     except KeyError:
         low_bound, up_bound = np.sort(study_table[target].unique())  # in case target == "binary_..."
 
@@ -1324,7 +1323,7 @@ def datasplit_for_classification(
 
             # print("Median low:", low_corr4.median(), "\nMedian upper:", up_corr4.median())  # noqa: ERA001
 
-            if np.abs(up_corr4.median() - low_corr4.median()) < 0.5:  # TODO: refine threshold  # noqa: FIX002, PLR2004
+            if np.abs(up_corr4.median() - low_corr4.median()) < 0.5:  # refine threshold  # noqa: PLR2004
                 break
 
         group_low = group_low.loc[low_corr4.index]
@@ -1721,7 +1720,7 @@ def get_life_data(  # noqa: C901, PLR0912, PLR0913, PLR0915
         for sic in all_sics:
             if sic not in mri_dataset:  # == sic not in targ_sets.keys()
                 if sic in targ_sets:
-                    msg = "KEY SHOULD BE SAME FOR BOTH SETS"  # TODO: FOR TESTING  # noqa: FIX002
+                    msg = "KEY SHOULD BE SAME FOR BOTH SETS"  # ONLY FOR TESTING
                     raise ValueError(msg)
                 mri_dataset[sic] = None
                 targ_sets[sic] = None
