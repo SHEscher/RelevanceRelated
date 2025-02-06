@@ -35,14 +35,14 @@
 .Rproj.user
 .Rhistory
 
-# # Unit test / coverage reports
+# Unit test / coverage reports
 .tox/
 .coverage
 .cache
 nosetests.xml
 coverage.xml
 
-# # Builds
+# Builds
 bin/
 build/
 develop-eggs/
@@ -56,3 +56,6 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Python
+__pycache__/
