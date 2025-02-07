@@ -58,7 +58,7 @@ pip install -e .
 ```
 
 Note, there are optional dependencies for those, who want to develop this project further.
-Check out the [`pyproject.toml`](./pyproject.toml) file to see which dependencies will be installed additionally
+Check out the [`setup.cfg`](./setup.cfg) file to see which dependencies will be installed additionally
 (add the `[develop]` flag to the `pip` installation line above).
 
 Also, note that some of the code had to be anonymized due to data protection regulations.
