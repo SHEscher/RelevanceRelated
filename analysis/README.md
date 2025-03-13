@@ -8,7 +8,7 @@
 | **Contact**  | simon.hofmann[ät]cbs.mpg.de | o.goltermann[ät]uke.de   | fbeyer[ät]cbs.mpg.de  |
 
 ![Last update](https://img.shields.io/badge/where-MPI_CBS-green)
-![Last update](https://img.shields.io/badge/last_update-Feb_06,_2025-blue)
+![Last update](https://img.shields.io/badge/last_update-March_13,_2025-blue)
 
 ---
 
@@ -48,8 +48,7 @@ For details see our previous study [Hofmann et al. (*NeuroImage*, 2022)](https:/
 ### LRP
 
 Submodule [`relevancerelated.modeling.LRP`](./relevancerelated/modeling/LRP/) contains scripts for the application
-of the XAI-method Layer-wise relevance propagation (
-[LRP; Bach et al., 2015]((https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130140)))
+of the XAI-method Layer-wise relevance propagation ([LRP; Bach et al., 2015]((https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130140)))
 on MRI-based prediction models.
 As a post-hoc XAI-method, LRP highlights information in the input space
 being relevant for the given model prediction. <br>

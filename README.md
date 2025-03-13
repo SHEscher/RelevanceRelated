@@ -46,7 +46,7 @@ conda activate relrel_3.10
 ### Install the research project package `relevancerelated`
 
 Before running the line below in your terminal, make sure that you are in the root folder `RelevanceRelated/`,
-where this README lies.
+where this README file lies.
 Also, make sure that the **root** folder has the *CamelCase* naming.
 Some operating systems do not keep this after cloning repositories from a remote server.
 
@@ -57,7 +57,7 @@ Install the study code as `Python` package:
 pip install -e .
 ```
 
-Note, there are optional dependencies for those, who want to develop this project further.
+Note, there are optional dependencies for those who want to develop this project further.
 Check out the [`setup.cfg`](./setup.cfg) file to see which dependencies will be installed additionally
 (add the `[develop]` flag to the `pip` installation line above).
 
@@ -86,7 +86,23 @@ which is a generalized form of the code presented here.
 
 If you use code or data from this repository, please cite the following paper:
 
-    Hofmann, S.M., Goltermann, O., Scherf, N., Müller, K.R., Löffler, M., Villringer, A., Gaebler, M., Witte, A.V., Beyer, F. The utility of explainable AI for MRI analysis: Relating model predictions to neuroimaging features of the aging brain. *Imaging Neuroscience*. 2025.
+[Hofmann, S.M., Goltermann, O., Scherf, N., Müller, K.R., Löffler, M., Villringer, A., Gaebler, M., Witte, A.V., Beyer, F. The utility of explainable AI for MRI analysis: Relating model predictions to neuroimaging features of the aging brain. *Imaging Neuroscience*. 2025.](https://doi.org/10.1162/imag_a_00497)
+
+```bibtex
+@article{hofmanngoltermannUtilityExplainableAI2025,
+    author = {Hofmann, Simon M. and Goltermann, Ole and Scherf, Nico and Müller, Klaus-Robert and Löffler, Markus and Villringer, Arno and Gaebler, Michael and Witte, A. Veronica and Beyer, Frauke},
+    title = {The utility of explainable AI for MRI analysis: Relating model predictions to neuroimaging features of the aging brain},
+    journal = {Imaging Neuroscience},
+    volume = {3},
+    pages = {imag_a_00497},
+    year = {2025},
+    month = {02},
+    issn = {2837-6056},
+    doi = {10.1162/imag_a_00497},
+    url = {https://doi.org/10.1162/imag\_a\_00497},
+    eprint = {https://direct.mit.edu/imag/article-pdf/doi/10.1162/imag\_a\_00497/2503311/imag\_a\_00497.pdf},
+}
+```
 
 ---
 
